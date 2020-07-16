@@ -10,7 +10,6 @@ export class NumberPeopleService {
 
   // Returns the number of people currently in the store
   public getPeopleInShop(
-
     timeForEstimate : number,
     initialClientNb : number,
     incomingClientNb : number,
