@@ -26,6 +26,8 @@ export class NumberPeopleService {
     // Number of outputs in the interval
     let peopleOutgoingInInterval = Math.round(timeForEstimate / outgoingClientInterval) * outgoingClientNb;
 
-    return initialClientNb + peopleIncomingInInterval - peopleOutgoingInInterval;
+    let peopleInShop = initialClientNb + peopleIncomingInInterval - peopleOutgoingInInterval;
+
+    return peopleInShop < 0 ? 0 : peopleInShop;
   }
 }
