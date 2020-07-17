@@ -10,32 +10,32 @@
       <form [formGroup]="formGroupDecathlon">
       <mat-form-field appearance="outline">
         <mat-label>Time for estimate</mat-label>
-        <input matInput type="number" formControlName="timeForEstimate">
+        <input matInput type="number" min="0" formControlName="timeForEstimate">
       </mat-form-field>
       <br>
       <mat-form-field appearance="outline">
         <mat-label>Intial people in the shop</mat-label>
-        <input matInput type="number" formControlName="initialClientNb">
+        <input matInput type="number" min="0" formControlName="initialClientNb">
       </mat-form-field>
       <br>
       <mat-form-field appearance="outline">
         <mat-label>Incoming client</mat-label>
-        <input matInput type="number" formControlName="incomingClientNb">
+        <input matInput type="number" min="0" formControlName="incomingClientNb">
       </mat-form-field>
       <br>
       <mat-form-field appearance="outline">
         <mat-label>Incoming client interval (in minutes)</mat-label>
-        <input matInput type="number" formControlName="incomingClientInterval">
+        <input matInput type="number" min="0" formControlName="incomingClientInterval">
       </mat-form-field>
       <br>
       <mat-form-field appearance="outline">
         <mat-label>Outgoing client</mat-label>
-        <input matInput type="number" formControlName="outgoingClientNb">
+        <input matInput type="number" min="0" formControlName="outgoingClientNb">
       </mat-form-field>
       <br>
       <mat-form-field appearance="outline">
         <mat-label>Outgoing client interval (in minutes)</mat-label>
-        <input matInput type="number" formControlName="outgoingClientInterval">
+        <input matInput type="number" min="0" formControlName="outgoingClientInterval">
       </mat-form-field>
       </form>
 
