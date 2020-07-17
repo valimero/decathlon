@@ -2,51 +2,45 @@
   <span>Decathlon App</span>
 </mat-toolbar>
 
-<mat-grid-list cols="6" rowHeight="1:4">
-  <mat-grid-tile colspan="1"></mat-grid-tile>
-  <mat-grid-tile colspan="4">
+<div class="v-form-deca">
+  <form [formGroup]="formGroupDecathlon">
+    <mat-form-field appearance="outline">
+      <mat-label>Time for estimate</mat-label>
+      <input matInput type="number" min="0" formControlName="timeForEstimate">
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="outline">
+      <mat-label>Intial people in the shop</mat-label>
+      <input matInput type="number" min="0" formControlName="initialClientNb">
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="outline">
+      <mat-label>Incoming client</mat-label>
+      <input matInput type="number" min="0" formControlName="incomingClientNb">
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="outline">
+      <mat-label>Incoming client interval (in minutes)</mat-label>
+      <input matInput type="number" min="0" formControlName="incomingClientInterval">
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="outline">
+      <mat-label>Outgoing client</mat-label>
+      <input matInput type="number" min="0" formControlName="outgoingClientNb">
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="outline">
+      <mat-label>Outgoing client interval (in minutes)</mat-label>
+      <input matInput type="number" min="0" formControlName="outgoingClientInterval">
+    </mat-form-field>
+  </form>
 
-    <div class="v-form-deca">
-      <form [formGroup]="formGroupDecathlon">
-      <mat-form-field appearance="outline">
-        <mat-label>Time for estimate</mat-label>
-        <input matInput type="number" min="0" formControlName="timeForEstimate">
-      </mat-form-field>
-      <br>
-      <mat-form-field appearance="outline">
-        <mat-label>Intial people in the shop</mat-label>
-        <input matInput type="number" min="0" formControlName="initialClientNb">
-      </mat-form-field>
-      <br>
-      <mat-form-field appearance="outline">
-        <mat-label>Incoming client</mat-label>
-        <input matInput type="number" min="0" formControlName="incomingClientNb">
-      </mat-form-field>
-      <br>
-      <mat-form-field appearance="outline">
-        <mat-label>Incoming client interval (in minutes)</mat-label>
-        <input matInput type="number" min="0" formControlName="incomingClientInterval">
-      </mat-form-field>
-      <br>
-      <mat-form-field appearance="outline">
-        <mat-label>Outgoing client</mat-label>
-        <input matInput type="number" min="0" formControlName="outgoingClientNb">
-      </mat-form-field>
-      <br>
-      <mat-form-field appearance="outline">
-        <mat-label>Outgoing client interval (in minutes)</mat-label>
-        <input matInput type="number" min="0" formControlName="outgoingClientInterval">
-      </mat-form-field>
-      </form>
+  <button mat-raised-button type="submit" color="primary" (press)="updateResult()" (click)="updateResult()">Calculate</button>
 
-      <button mat-raised-button type="submit" color="primary" (press)="updateResult()" (click)="updateResult()">Calculate</button>
+  <h3 *ngIf="numberPeopleInShop > 1">There are actually {{numberPeopleInShop}} people</h3>
+  <h3 *ngIf="numberPeopleInShop === 1">There is actually {{numberPeopleInShop}} person</h3>
+  <h3 *ngIf="numberPeopleInShop === 0">There is actually no one</h3>
 
-      <h3 *ngIf="numberPeopleInShop > 1">There are actually {{numberPeopleInShop}} people</h3>
-      <h3 *ngIf="numberPeopleInShop === 1">There is actually {{numberPeopleInShop}} person</h3>
-      <h3 *ngIf="numberPeopleInShop === 0">There is actually no one</h3>
-
-    </div>
-  </mat-grid-tile>
-</mat-grid-list>
+</div>
 
 

@@ -1,3 +1,9 @@
-mat-form-field, .v-form-deca {
+mat-form-field {
   width: 100%;
+}
+
+.v-form-deca {
+  width: 80%;
+  margin: 50px auto;
+  text-align: center;
 }
