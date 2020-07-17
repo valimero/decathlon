@@ -6,45 +6,44 @@
   <mat-grid-tile colspan="1"></mat-grid-tile>
   <mat-grid-tile colspan="4">
 
-
-
     <div class="v-form-deca">
+      <form [formGroup]="formGroupDecathlon">
       <mat-form-field appearance="outline">
         <mat-label>Time for estimate</mat-label>
-        <input matInput type="number">
+        <input matInput type="number" formControlName="timeForEstimate">
       </mat-form-field>
       <br>
       <mat-form-field appearance="outline">
         <mat-label>Intial people in the shop</mat-label>
-        <input matInput type="number">
+        <input matInput type="number" formControlName="initialClientNb">
       </mat-form-field>
       <br>
       <mat-form-field appearance="outline">
         <mat-label>Incoming client</mat-label>
-        <input matInput type="number">
+        <input matInput type="number" formControlName="incomingClientNb">
       </mat-form-field>
       <br>
       <mat-form-field appearance="outline">
         <mat-label>Incoming client interval (in minutes)</mat-label>
-        <input matInput type="number">
+        <input matInput type="number" formControlName="incomingClientInterval">
       </mat-form-field>
       <br>
       <mat-form-field appearance="outline">
         <mat-label>Outgoing client</mat-label>
-        <input matInput type="number">
+        <input matInput type="number" formControlName="outgoingClientNb">
       </mat-form-field>
       <br>
       <mat-form-field appearance="outline">
         <mat-label>Outgoing client interval (in minutes)</mat-label>
-        <input matInput type="number">
+        <input matInput type="number" formControlName="outgoingClientInterval">
       </mat-form-field>
+      </form>
 
-      <button mat-raised-button color="primary">Calculate</button>
+      <button mat-raised-button color="primary" (click)="updateResult()">Calculate</button>
+
+      <h3 *ngIf="numberPeopleInShop > 1">There are actually {{numberPeopleInShop}} people</h3>
+      <h3 *ngIf="numberPeopleInShop === 1">There is actually {{numberPeopleInShop}} person</h3>
     </div>
-
-
-
-
   </mat-grid-tile>
 </mat-grid-list>
 
