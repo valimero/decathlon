@@ -10,22 +10,31 @@ export class NumberPeopleService {
 
   // Returns the number of people currently in the store
   public getPeopleInShop(
-    timeForEstimate : number,
-    initialClientNb : number,
-    incomingClientNb : number,
+    timeForEstimate: number,
+    initialClientNb: number,
+    incomingClientNb: number,
     incomingClientInterval: number,
-    outgoingClientNb : number,
-    outgoingClientInterval : number,
-  ) : number {
-  
-    // Number of entry in the interval
-    let peopleIncomingInInterval = Math.round(timeForEstimate / incomingClientInterval) * incomingClientNb;
+    outgoingClientNb: number,
+    outgoingClientInterval: number,
+  ): number {
+
+    let peopleIncomingInInterval = 0;
+    let peopleOutgoingInInterval = 0;
+
+    if(incomingClientNb > 0 && incomingClientInterval > 0)
+    {
+      // Number of entry in the interval
+      peopleIncomingInInterval = Math.round(timeForEstimate / incomingClientInterval) * incomingClientNb;
+    }
 
     // TODO No one can go out if there is no one in the store
-    // Number of outputs in the interval
-    let peopleOutgoingInInterval = Math.round(timeForEstimate / outgoingClientInterval) * outgoingClientNb;
+    if(outgoingClientNb > 0 && outgoingClientInterval > 0)
+    {
+      // Number of outputs in the interval
+      peopleOutgoingInInterval = Math.round(timeForEstimate / outgoingClientInterval) * outgoingClientNb;
+    }
 
-    let peopleInShop = initialClientNb + peopleIncomingInInterval - peopleOutgoingInInterval;
+    const peopleInShop = initialClientNb + peopleIncomingInInterval - peopleOutgoingInInterval;
 
     return peopleInShop < 0 ? 0 : peopleInShop;
   }
